@@ -28,13 +28,6 @@ public final class CiudadEntity {
         setDepartamento(departamentoEntity);
     }
 
-    public static CiudadEntity obtenerCiudadDefecto() {
-        return new CiudadEntity();
-    }
-    public static CiudadEntity obtenerValorDefecto(CiudadEntity ciudadEntityOriginal) {
-        return UtilObjeto.getInstance().obtenerValorDefecto(ciudadEntityOriginal, obtenerCiudadDefecto());
-    }
-
     public UUID getId() {
         return id;
     }
@@ -57,5 +50,13 @@ public final class CiudadEntity {
 
     public void setDepartamento(final DepartamentoEntity departamentoEntity) {
         this.departamentoEntity = DepartamentoEntity.obtenerValorDefecto(departamentoEntity);
+    }
+
+    public static CiudadEntity obtenerCiudadDefecto() {
+        return new CiudadEntity();
+    }
+
+    public static CiudadEntity obtenerValorDefecto(CiudadEntity ciudadEntityOriginal) {
+        return UtilObjeto.getInstance().obtenerValorDefecto(ciudadEntityOriginal, obtenerCiudadDefecto());
     }
 }
