@@ -3,13 +3,21 @@ package co.edu.uco.onlinetest.data.dao.entity.ciudad.impl.postgresql;
 import co.edu.uco.onlinetest.data.dao.entity.ciudad.CiudadDAO;
 import co.edu.uco.onlinetest.entity.CiudadEntity;
 
+import java.sql.Connection;
 import java.util.List;
 import java.util.UUID;
 
 public class CiudadPostgreSQLDAO implements CiudadDAO {
+
+    private Connection conexion;
+
+    public CiudadPostgreSQLDAO(Connection conexion) {
+        this.conexion = conexion;
+    }
+
     @Override
-    public CiudadEntity create(CiudadEntity entity) {
-        return null;
+    public void create(CiudadEntity entity) {
+
     }
 
     @Override
@@ -28,12 +36,12 @@ public class CiudadPostgreSQLDAO implements CiudadDAO {
     }
 
     @Override
-    public CiudadEntity ListById(UUID uuid) {
+    public CiudadEntity listById(UUID uuid) {
         return null;
     }
 
     @Override
-    public void update(UUID uuid, CiudadEntity entity) {
+    public void updateById(UUID uuid, CiudadEntity entity) {
 
     }
 }

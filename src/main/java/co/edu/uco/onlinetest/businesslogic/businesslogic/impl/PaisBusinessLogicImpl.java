@@ -5,7 +5,6 @@ import co.edu.uco.onlinetest.businesslogic.businesslogic.domain.PaisDomain;
 import co.edu.uco.onlinetest.data.dao.factory.DAOFactory;
 import co.edu.uco.onlinetest.entity.PaisEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,32 +18,34 @@ public class PaisBusinessLogicImpl implements PaisBusinessLogic {
 
     @Override
     public void registrarNuevoPais(PaisDomain pais) {
-        PaisEntity paisEntity = null;
+        PaisEntity paisEntity = new PaisEntity();
         factory.getPaisDAO().create(paisEntity);
     }
 
     @Override
-    public void modificarPais(UUID id, PaisDomain pais) {
-        PaisEntity paisEntity = null;
-        factory.getPaisDAO().update(id, paisEntity);
+    public void modificarPaisExistente(UUID id, PaisDomain pais) {
+        PaisEntity paisEntity = new PaisEntity();
+        factory.getPaisDAO().updateById(id, paisEntity);
     }
 
     @Override
-    public void darBajaDefinitivaPaisExistente(UUID id) {
+    public void darBajaDefinitivamentePaisExistente(UUID id) {
         factory.getPaisDAO().delete(id);
     }
 
     @Override
     public PaisDomain consultarPaisPorId(UUID id) {
-        PaisEntity paisEntity = factory.getPaisDAO().ListById(id);
         return null;
     }
 
     @Override
-    public List<PaisDomain> consultarPaisesPorFiltro(PaisDomain filtro) {
+    public List<PaisDomain> consultarPaises(PaisDomain filtro) {
+
         PaisEntity paisFilter = null;
         List<PaisEntity> paisEntities = factory.getPaisDAO().listByFilter(paisFilter);
-        List<PaisDomain> datosARetornar= null;
+
+        List<PaisDomain> datosARetornar = null;
+
         return datosARetornar;
     }
 }

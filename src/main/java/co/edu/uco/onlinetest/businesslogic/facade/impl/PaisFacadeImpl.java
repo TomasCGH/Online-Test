@@ -16,7 +16,7 @@ public class PaisFacadeImpl implements PaisFacade {
     private PaisBusinessLogic paisBusinessLogic;
 
     public PaisFacadeImpl() {
-        daoFactory = DAOFactory.getFactory(Factory.Azure_SQL);
+        daoFactory = DAOFactory.getFactory(Factory.AZURE_SQL);
         paisBusinessLogic = new PaisBusinessLogicImpl(daoFactory);
     }
 

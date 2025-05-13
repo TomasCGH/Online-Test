@@ -6,13 +6,15 @@ import java.util.List;
 import java.util.UUID;
 
 public interface PaisBusinessLogic {
-        void registrarNuevoPais(PaisDomain pais);
 
-        void modificarPais(UUID id,PaisDomain pais);
+    void registrarNuevoPais(PaisDomain pais);
 
-        void darBajaDefinitivaPaisExistente(UUID id);
+    void modificarPaisExistente(UUID id, PaisDomain pais);
 
-        PaisDomain consultarPaisPorId(UUID id);
+    void darBajaDefinitivamentePaisExistente(UUID id);
 
-        List<PaisDomain> consultarPaisesPorFiltro(PaisDomain filtro);
+    PaisDomain consultarPaisPorId(UUID id);
+
+    List <PaisDomain> consultarPaises(PaisDomain filtro);
+
 }

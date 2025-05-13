@@ -3,28 +3,28 @@ package co.edu.uco.onlinetest.data.dao.factory;
 import co.edu.uco.onlinetest.data.dao.entity.ciudad.CiudadDAO;
 import co.edu.uco.onlinetest.data.dao.entity.departamento.DepartamentoDAO;
 import co.edu.uco.onlinetest.data.dao.entity.pais.PaisDAO;
-import co.edu.uco.onlinetest.data.dao.factory.azuresql.AzureSQLDAOFactory;
+import co.edu.uco.onlinetest.data.dao.factory.postgresql.PostgreSQLDAOFactory;
 
 public abstract class DAOFactory {
 
-
     public static DAOFactory getFactory(Factory factory) {
-        switch (factory) {
-            case Azure_SQL:
-                return new AzureSQLDAOFactory();
-            default:
-                throw  new IllegalArgumentException("No se encontro el DAOFactory");
-        }
 
+        switch (factory) {
+            case POSTGRE_SQL:
+                return new PostgreSQLDAOFactory() {
+                };
+            default:
+                throw new IllegalArgumentException("Unexpected value: " + factory);
+        }
     }
 
-    public abstract void abrirConexion();
+    protected abstract void abrirConexion();
 
-    public abstract void iniciarTransaccion();
+    public abstract void iniciarTransacion();
 
-    public abstract void confirmarTransaccion();
+    public abstract void confirmarTransacion();
 
-    public abstract void cancelarTransaccion();
+    public abstract void cancelarTransacion();
 
     public abstract void cerrarConexion();
 
@@ -33,4 +33,5 @@ public abstract class DAOFactory {
     public abstract DepartamentoDAO getDepartamentoDAO();
 
     public abstract CiudadDAO getCiudadDAO();
+
 }

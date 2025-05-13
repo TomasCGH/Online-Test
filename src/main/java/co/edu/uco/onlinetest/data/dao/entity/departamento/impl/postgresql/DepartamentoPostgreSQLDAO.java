@@ -3,13 +3,21 @@ package co.edu.uco.onlinetest.data.dao.entity.departamento.impl.postgresql;
 import co.edu.uco.onlinetest.data.dao.entity.departamento.DepartamentoDAO;
 import co.edu.uco.onlinetest.entity.DepartamentoEntity;
 
+import java.sql.Connection;
 import java.util.List;
 import java.util.UUID;
 
 public class DepartamentoPostgreSQLDAO implements DepartamentoDAO {
+
+    private Connection conexion;
+
+    public DepartamentoPostgreSQLDAO(Connection conexion) {
+        this.conexion = conexion;
+    }
+
     @Override
-    public DepartamentoEntity create(DepartamentoEntity entity) {
-        return null;
+    public void create(DepartamentoEntity entity) {
+
     }
 
     @Override
@@ -28,12 +36,12 @@ public class DepartamentoPostgreSQLDAO implements DepartamentoDAO {
     }
 
     @Override
-    public DepartamentoEntity ListById(UUID uuid) {
+    public DepartamentoEntity listById(UUID uuid) {
         return null;
     }
 
     @Override
-    public void update(UUID uuid, DepartamentoEntity entity) {
+    public void updateById(UUID uuid, DepartamentoEntity entity) {
 
     }
 }
