@@ -15,9 +15,10 @@ public class PaisAzureSQLDAO implements PaisDAO {
         this.connection = connection;
     }
 
+
     @Override
-    public PaisEntity create(PaisEntity entity) {
-        return null;
+    public void create(PaisEntity entity) {
+
     }
 
     @Override
@@ -36,12 +37,12 @@ public class PaisAzureSQLDAO implements PaisDAO {
     }
 
     @Override
-    public PaisEntity ListById(UUID uuid) {
+    public PaisEntity listById(UUID uuid) {
         return null;
     }
 
     @Override
-    public void update(UUID uuid, PaisEntity entity) {
+    public void updateById(UUID uuid, PaisEntity entity) {
 
     }
 }

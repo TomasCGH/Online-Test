@@ -1,4 +1,4 @@
-package co.edu.uco.onlinetest.businesslogic.bussinesslogic.impl;
+package co.edu.uco.onlinetest.businesslogic.businesslogic.impl;
 
 import co.edu.uco.onlinetest.businesslogic.businesslogic.DepartamentoBusinessLogic;
 import co.edu.uco.onlinetest.businesslogic.businesslogic.PaisBusinessLogic;

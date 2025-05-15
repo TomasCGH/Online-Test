@@ -12,9 +12,10 @@ public class CiudadAzureSQLDAO implements CiudadDAO {
     public CiudadAzureSQLDAO(Connection conexion) {
     }
 
+
     @Override
-    public CiudadEntity create(CiudadEntity entity) {
-        return null;
+    public void create(CiudadEntity entity) {
+
     }
 
     @Override
@@ -33,12 +34,12 @@ public class CiudadAzureSQLDAO implements CiudadDAO {
     }
 
     @Override
-    public CiudadEntity ListById(UUID uuid) {
+    public CiudadEntity listById(UUID uuid) {
         return null;
     }
 
     @Override
-    public void update(UUID uuid, CiudadEntity entity) {
+    public void updateById(UUID uuid, CiudadEntity entity) {
 
     }
 }
