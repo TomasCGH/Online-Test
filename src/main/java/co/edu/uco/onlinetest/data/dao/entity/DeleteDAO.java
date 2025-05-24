@@ -1,5 +1,12 @@
 package co.edu.uco.onlinetest.data.dao.entity;
 
-public interface DeleteDAO <ID> {
-    void delete(ID id);
+import co.edu.uco.onlinetest.crosscutting.excepciones.OnlineTestException;
+
+public interface DeleteDAO<ID>{
+
+
+    void delete (ID id) throws OnlineTestException;
+
+
+
 }

@@ -1,6 +1,5 @@
 package co.edu.uco.onlinetest.data.dao.factory;
 
 public enum Factory {
-    POSTGRE_SQL,
-    AZURE_SQL
+    AZURE_SQL,MY_SQL, POSTGRES_SQL,ORACLE;
 }

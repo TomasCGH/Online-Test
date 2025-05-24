@@ -5,33 +5,38 @@ public final class UtilTexto {
     private static UtilTexto instancia = new UtilTexto();
     public final static String VACIO = "";
 
-    private UtilTexto() {
+    private UtilTexto (){
 
     }
 
-    public static UtilTexto getInstance() {
+    public static UtilTexto  getInstance() {
         return instancia;
     }
 
-    public Boolean esNula(final String valor) {
-        return UtilObjeto.getInstance().esNulo(valor);
+    public boolean esNula(final String valor) {
+        return UtilObjeto.getIntance().esNulo(valor);
     }
+
+    public String obtenerValorDefecto(final String valorOriginal, final String valorDefecto) {
+        return UtilObjeto.getIntance().obtenerValorDefecto(valorOriginal, valorDefecto);
+    }
+
+    public String obtenerValorDefecto(final String valor) {
+        return obtenerValorDefecto (valor, VACIO);
+    }
+
 
     public String obtenerValorDefecto() {
         return VACIO;
     }
 
-    public String obtenerValorDefecto(final String valor) {
-        return obtenerValorDefecto(valor, VACIO);
-    }
-
-    public String obtenerValorDefecto(final String valorOriginal, final String valorDefecto) {
-        return UtilObjeto.getInstance().obtenerValorDefecto(valorOriginal, valorDefecto);
-    }
-
-    public String quitarEspaciosEnBlancoInicioFin(final String valor) {
+    public String quitarEspacioBlancoInicioFin(final String valor) {
         return obtenerValorDefecto(valor).trim();
     }
 
+
+    public  boolean esValorDefecto(final String valor) {
+        return obtenerValorDefecto(valor).equals(obtenerValorDefecto());
+    }
 
 }

@@ -1,21 +1,25 @@
 package co.edu.uco.onlinetest.businesslogic.businesslogic;
 
 import co.edu.uco.onlinetest.businesslogic.businesslogic.domain.CiudadDomain;
-import co.edu.uco.onlinetest.businesslogic.businesslogic.domain.DepartamentoDomain;
+import co.edu.uco.onlinetest.crosscutting.excepciones.OnlineTestException;
+
 
 import java.util.List;
 import java.util.UUID;
 
 public interface CiudadBusinessLogic {
 
-    void registrarNuevoCiudad(CiudadDomain pais);
 
-    void modificarCiudadExistente(UUID id, CiudadDomain pais);
+    void registrarNuevaCiudad(CiudadDomain ciudad) throws OnlineTestException;
 
-    void darBajaDefinitivamenteCiudadExistente(UUID id);
+    void modificarCiudadExistente(UUID id, CiudadDomain ciudad) throws OnlineTestException;
 
-    CiudadDomain consultarCiudadPorId(UUID id);
+    void darbajaDefinitivamenteCiudadExistente(UUID id) throws OnlineTestException;
 
-    List<CiudadDomain> consultarCiudad(CiudadDomain filtro);
+    CiudadDomain consultarCiudadPorId(UUID id) throws OnlineTestException;
+
+    List<CiudadDomain> consultarCiudades(CiudadDomain filtro) throws OnlineTestException;
+
+
 
 }

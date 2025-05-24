@@ -1,10 +1,10 @@
 package co.edu.uco.onlinetest.data.dao.factory.postgresql;
 
-import co.edu.uco.onlinetest.data.dao.entity.ciudad.CiudadDAO;
+import co.edu.uco.onlinetest.crosscutting.excepciones.OnlineTestException;
 import co.edu.uco.onlinetest.data.dao.entity.ciudad.impl.postgresql.CiudadPostgreSQLDAO;
-import co.edu.uco.onlinetest.data.dao.entity.departamento.DepartamentoDAO;
+import co.edu.uco.onlinetest.data.dao.entity.departamento.impl.azuresql.DepartamentoAzureSQLDAO;
 import co.edu.uco.onlinetest.data.dao.entity.departamento.impl.postgresql.DepartamentoPostgreSQLDAO;
-import co.edu.uco.onlinetest.data.dao.entity.pais.PaisDAO;
+import co.edu.uco.onlinetest.data.dao.entity.pais.impl.azuresql.PaisAzureSQLDAO;
 import co.edu.uco.onlinetest.data.dao.entity.pais.impl.postgresql.PaisPostgreSQLDAO;
 import co.edu.uco.onlinetest.data.dao.factory.DAOFactory;
 
@@ -19,8 +19,23 @@ public class PostgreSQLDAOFactory extends DAOFactory {
     }
 
     @Override
-    protected void abrirConexion() {
+    public void abrirConexion() {
         conexion = null;
+    }
+
+    @Override
+    public void iniciartransaccion() throws OnlineTestException {
+
+    }
+
+    @Override
+    public void confirmartransaccion() throws OnlineTestException {
+
+    }
+
+    @Override
+    public void cancelartransaccion() throws OnlineTestException {
+
     }
 
     @Override
@@ -44,17 +59,17 @@ public class PostgreSQLDAOFactory extends DAOFactory {
     }
 
     @Override
-    public PaisDAO getPaisDAO() {
+    public PaisAzureSQLDAO getPaisDAO() {
         return new PaisPostgreSQLDAO(conexion);
     }
 
     @Override
-    public DepartamentoDAO getDepartamentoDAO() {
+    public DepartamentoAzureSQLDAO getDepartamentoDAO() {
         return new DepartamentoPostgreSQLDAO(conexion);
     }
 
     @Override
-    public CiudadDAO getCiudadDAO() {
+    public CiudadPostgreSQLDAO getCiudadDAO() {
         return new CiudadPostgreSQLDAO(conexion);
     }
 }

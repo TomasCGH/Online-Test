@@ -1,19 +1,24 @@
 package co.edu.uco.onlinetest.businesslogic.facade;
 
 
+import co.edu.uco.onlinetest.crosscutting.excepciones.OnlineTestException;
 import co.edu.uco.onlinetest.dto.PaisDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface PaisFacade {
-        void registrarNuevoPais(PaisDTO pais);
 
-        void modificarPais(UUID id,PaisDTO pais);
 
-        void darBajaDefinitivaPaisExistente(UUID id);
+    void registrarNuevoPais(PaisDTO pais) throws OnlineTestException;
 
-        PaisDTO consultarPaisPorId(UUID id);
+    void modificarPaisExistente(UUID id, PaisDTO pais) throws OnlineTestException;
 
-        List<PaisDTO> consultarPaisesPorFiltro(PaisDTO filtro);
+    void darbajaDefinitivamentePaisExistente(UUID id) throws OnlineTestException;
+
+    PaisDTO consultarPaisPorId(UUID id) throws OnlineTestException;
+
+    List<PaisDTO> consultarPais(PaisDTO filtro) throws OnlineTestException;
+
+
 }

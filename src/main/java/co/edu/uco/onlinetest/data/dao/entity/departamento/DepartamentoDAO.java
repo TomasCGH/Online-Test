@@ -9,7 +9,9 @@ import co.edu.uco.onlinetest.entity.PaisEntity;
 
 import java.util.UUID;
 
-public interface DepartamentoDAO
-        extends CreateDAO <DepartamentoEntity>, RetrieveDAO<DepartamentoEntity, UUID>, UpdateDAO<DepartamentoEntity, UUID>, DeleteDAO<UUID> {
+public interface DepartamentoDao
+        extends CreateDAO<DepartamentoEntity>, RetrieveDAO<DepartamentoEntity, UUID>, UpdateDAO<DepartamentoEntity, UUID>, DeleteDAO<UUID> {
 
+
+    void updateById(UUID uuid, DepartamentoEntity entity);
 }

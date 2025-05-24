@@ -1,24 +1,41 @@
 package co.edu.uco.onlinetest.data.dao.factory;
 
-import co.edu.uco.onlinetest.data.dao.entity.ciudad.CiudadDAO;
-import co.edu.uco.onlinetest.data.dao.entity.departamento.DepartamentoDAO;
-import co.edu.uco.onlinetest.data.dao.entity.pais.PaisDAO;
-import co.edu.uco.onlinetest.data.dao.factory.postgresql.PostgreSQLDAOFactory;
+import co.edu.uco.onlinetest.crosscutting.excepciones.DataOnlineTestException;
+import co.edu.uco.onlinetest.crosscutting.excepciones.OnlineTestException;
+import co.edu.uco.onlinetest.data.dao.entity.ciudad.CiudadDao;
+import co.edu.uco.onlinetest.data.dao.entity.departamento.impl.azuresql.DepartamentoAzureSQLDAO;
+import co.edu.uco.onlinetest.data.dao.entity.pais.impl.azuresql.PaisAzureSQLDAO;
+import co.edu.uco.onlinetest.data.dao.factory.azuresql.AzureSQLDAOFactory;
 
-public abstract class DAOFactory {
 
-    public static DAOFactory getFactory(Factory factory) {
+public abstract class  DAOFactory{
 
-        switch (factory) {
-            case POSTGRE_SQL:
-                return new PostgreSQLDAOFactory() {
-                };
+
+    public static DAOFactory getFactory(Factory factory) throws OnlineTestException {
+
+        switch (factory){
+            case AZURE_SQL: {
+                return new AzureSQLDAOFactory();
+            }
             default:
-                throw new IllegalArgumentException("Unexpected value: " + factory);
+
+                var mensajeUsuario = "Se ha presentado un problema tratando de obtener la infomacion de la fuente de datos ";
+                var mensajeTecnico = "se solicito la factoria"+ factory+"pero esta no esta implementada";
+                throw DataOnlineTestException.reportar(mensajeUsuario,mensajeTecnico);
+
         }
     }
 
-    protected abstract void abrirConexion();
+
+
+
+    public abstract void abrirConexion() throws OnlineTestException;
+
+    public abstract void iniciartransaccion() throws OnlineTestException ;
+
+    public abstract void confirmartransaccion() throws OnlineTestException;
+
+    public abstract void cancelartransaccion() throws OnlineTestException;
 
     public abstract void iniciarTransacion();
 
@@ -26,12 +43,15 @@ public abstract class DAOFactory {
 
     public abstract void cancelarTransacion();
 
-    public abstract void cerrarConexion();
+    public abstract void cerrarConexion() throws OnlineTestException;
 
-    public abstract PaisDAO getPaisDAO();
 
-    public abstract DepartamentoDAO getDepartamentoDAO();
 
-    public abstract CiudadDAO getCiudadDAO();
+    public abstract PaisAzureSQLDAO getPaisDAO() throws OnlineTestException;
+
+    public abstract DepartamentoAzureSQLDAO getDepartamentoDAO() throws OnlineTestException;
+
+    public abstract CiudadDao getCiudadDAO() throws OnlineTestException;
+
 
 }

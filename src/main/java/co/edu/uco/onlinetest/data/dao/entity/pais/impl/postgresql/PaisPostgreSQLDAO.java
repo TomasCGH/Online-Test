@@ -1,13 +1,13 @@
 package co.edu.uco.onlinetest.data.dao.entity.pais.impl.postgresql;
 
-import co.edu.uco.onlinetest.data.dao.entity.pais.PaisDAO;
+import co.edu.uco.onlinetest.data.dao.entity.pais.PaisDao;
 import co.edu.uco.onlinetest.entity.PaisEntity;
 
 import java.sql.Connection;
 import java.util.List;
 import java.util.UUID;
 
-public class PaisPostgreSQLDAO implements PaisDAO {
+public class PaisPostgreSQLDAO implements PaisDao {
 
     private Connection conexion;
 
@@ -43,5 +43,8 @@ public class PaisPostgreSQLDAO implements PaisDAO {
     @Override
     public void updateById(UUID uuid, PaisEntity entity) {
 
+    }
+
+    public void update(UUID id, PaisEntity paisEntity) {
     }
 }

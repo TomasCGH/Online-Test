@@ -8,7 +8,9 @@ import co.edu.uco.onlinetest.entity.PaisEntity;
 
 import java.util.UUID;
 
-public interface PaisDAO
-        extends CreateDAO <PaisEntity>, RetrieveDAO<PaisEntity, UUID>, UpdateDAO<PaisEntity, UUID>, DeleteDAO<UUID> {
+public interface PaisDao
+        extends CreateDAO<PaisEntity>, RetrieveDAO<PaisEntity, UUID>, UpdateDAO<PaisEntity, UUID>, DeleteDAO<UUID> {
 
+
+    void updateById(UUID uuid, PaisEntity entity);
 }

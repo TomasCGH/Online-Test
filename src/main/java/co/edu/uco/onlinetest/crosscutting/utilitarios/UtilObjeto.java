@@ -4,12 +4,12 @@ public final class UtilObjeto {
 
     private static UtilObjeto instancia;
 
-
     private UtilObjeto() {
-        super();
+
     }
 
-    public static synchronized UtilObjeto getInstance() {
+    public static synchronized UtilObjeto getIntance() {
+
         if (instancia == null) {
             instancia = new UtilObjeto();
         }
@@ -23,7 +23,4 @@ public final class UtilObjeto {
     public <O> O obtenerValorDefecto(final O valorOriginal, final O valorDefecto) {
         return esNulo(valorOriginal) ? valorDefecto : valorOriginal;
     }
-
-
-
 }

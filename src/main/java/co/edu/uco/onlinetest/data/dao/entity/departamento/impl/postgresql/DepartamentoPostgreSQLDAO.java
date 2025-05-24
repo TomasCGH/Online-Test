@@ -1,13 +1,13 @@
 package co.edu.uco.onlinetest.data.dao.entity.departamento.impl.postgresql;
 
-import co.edu.uco.onlinetest.data.dao.entity.departamento.DepartamentoDAO;
+import co.edu.uco.onlinetest.data.dao.entity.departamento.DepartamentoDao;
 import co.edu.uco.onlinetest.entity.DepartamentoEntity;
 
 import java.sql.Connection;
 import java.util.List;
 import java.util.UUID;
 
-public class DepartamentoPostgreSQLDAO implements DepartamentoDAO {
+public class DepartamentoPostgreSQLDAO implements DepartamentoDao {
 
     private Connection conexion;
 
@@ -43,5 +43,8 @@ public class DepartamentoPostgreSQLDAO implements DepartamentoDAO {
     @Override
     public void updateById(UUID uuid, DepartamentoEntity entity) {
 
+    }
+
+    public void update(UUID id, DepartamentoEntity departamentoEntity) {
     }
 }

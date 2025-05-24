@@ -1,20 +1,24 @@
 package co.edu.uco.onlinetest.businesslogic.businesslogic;
 
 import co.edu.uco.onlinetest.businesslogic.businesslogic.domain.PaisDomain;
+import co.edu.uco.onlinetest.crosscutting.excepciones.OnlineTestException;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface PaisBusinessLogic {
 
-    void registrarNuevoPais(PaisDomain pais);
 
-    void modificarPaisExistente(UUID id, PaisDomain pais);
+    void registrarNuevoPais(PaisDomain pais) throws OnlineTestException;
 
-    void darBajaDefinitivamentePaisExistente(UUID id);
+    void modificarPaisExistente(UUID id, PaisDomain pais) throws OnlineTestException;
 
-    PaisDomain consultarPaisPorId(UUID id);
+    void darbajaDefinitivamentePaisExistente(UUID id) throws OnlineTestException;
 
-    List <PaisDomain> consultarPaises(PaisDomain filtro);
+    PaisDomain consultarPaisPorId(UUID id) throws OnlineTestException;
+
+    List<PaisDomain> consultarPaises(PaisDomain filtro) throws OnlineTestException;
+
+
 
 }
